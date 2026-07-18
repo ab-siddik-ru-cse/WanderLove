@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #e85d75;
+  --color-primary-light: #f7a4b5;
+  --color-primary-dark: #b23a54;
+  --color-secondary: #6c63ff;
+  --color-secondary-light: #a29bfe;
+  --color-secondary-dark: #4834d4;
+
+  /* RGB triplets (no commas) so Tailwind's `/opacity` modifiers work, e.g. border-primary/20 */
+  --color-primary-rgb: 232 93 117;
+  --color-primary-light-rgb: 247 164 181;
+  --color-primary-dark-rgb: 178 58 84;
+  --color-secondary-rgb: 108 99 255;
+  --color-secondary-light-rgb: 162 155 254;
+  --color-secondary-dark-rgb: 72 52 212;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl2 bg-love-gradient px-6 py-3
+      font-medium text-white shadow-soft transition-transform duration-200 hover:scale-[1.02]
+      active:scale-[0.98] disabled:opacity-60 disabled:hover:scale-100;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl2 border-2 border-primary/20
+      bg-white px-6 py-3 font-medium text-primary-dark shadow-card transition-colors
+      hover:border-primary/40 hover:bg-blush;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-ink/10 bg-white px-4 py-3 text-ink placeholder:text-ink/40
+      outline-none transition-shadow focus:ring-2 focus:ring-primary/40;
+  }
+
+  .card-surface {
+    @apply rounded-xl2 border border-ink/5 bg-white shadow-card;
+  }
+}
+
+/* subtle scrapbook paper texture using layered radial dots */
+.paper-texture {
+  background-image: radial-gradient(rgba(232, 93, 117, 0.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
