@@ -38,13 +38,24 @@ export function getDaysBetween(start: Date, end: Date): Date[] {
   return days;
 }
 
-export function getCountdownParts(target: Date): { days: number; hours: number; minutes: number; isPast: boolean } {
+export interface CountdownParts {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  milliseconds: number;
+  isPast: boolean;
+}
+
+export function getCountdownParts(target: Date): CountdownParts {
   const diffMs = target.getTime() - Date.now();
   if (diffMs <= 0) {
-    return { days: 0, hours: 0, minutes: 0, isPast: true };
+    return { days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0, isPast: true };
   }
   const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
   const hours = Math.floor((diffMs / (1000 * 60 * 60)) % 24);
   const minutes = Math.floor((diffMs / (1000 * 60)) % 60);
-  return { days, hours, minutes, isPast: false };
+  const seconds = Math.floor((diffMs / 1000) % 60);
+  const milliseconds = Math.floor(diffMs % 1000);
+  return { days, hours, minutes, seconds, milliseconds, isPast: false };
 }

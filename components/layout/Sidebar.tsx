@@ -2,14 +2,9 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Heart, LayoutDashboard, Sparkles, Settings, Map } from 'lucide-react';
+import { Heart, Map } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
-const navItems = [
-  { href: '/', label: 'My Trips', icon: LayoutDashboard },
-  { href: '/instant', label: 'Instant Plan', icon: Sparkles },
-  { href: '/settings', label: 'Settings', icon: Settings }
-];
+import { navItems } from './nav-items';
 
 export function Sidebar() {
   const pathname = usePathname();

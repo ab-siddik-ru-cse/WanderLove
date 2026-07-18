@@ -40,6 +40,12 @@ Full-stack Next.js 14 (App Router) + TypeScript + MongoDB app for couples to pla
 - Fixed a TS error importing `mapbox-gl/dist/mapbox-gl.css` as a dynamic `import()` (no type declarations for CSS) — switched to a plain side-effect import at the top of `MapView.tsx`.
 - Verified `next build` end-to-end in this sandbox by temporarily swapping in system fonts (the sandbox itself can't reach `fonts.googleapis.com` — this is a sandbox network restriction only, not a code issue) — build completed cleanly with all 17 routes generated, then restored the real Google Fonts (`Poppins`/`Playfair Display`) config before packaging.
 
+## 🆕 Post-launch fixes
+
+- **Mobile nav**: the Sidebar was `hidden` below the `md` breakpoint with nothing replacing it — added a hamburger menu (`components/layout/MobileNav.tsx`) in the Navbar that slides in the same "My Trips / Instant Plan / Settings" links on mobile.
+- **Countdown widget**: now ticks every ~47ms and shows Seconds and Milliseconds boxes alongside Days/Hours/Mins (`lib/utils.ts` → `getCountdownParts` extended, `CountdownWidget.tsx` updated).
+- **Trip cover photo**: the trip header (shared across Itinerary/Map/Budget/Journal tabs) is now a `TripHeader` banner that displays `coverImage` behind the title, with a "Change cover" button (paste an image URL) that saves via `PUT /api/trips/[tripId]`.
+
 ## Setup
 
 ```bash
