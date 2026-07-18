@@ -28,6 +28,7 @@ export default async function DashboardPage() {
           <CountdownWidget
             targetDate={new Date(nearestUpcoming.startDate).toISOString()}
             destination={nearestUpcoming.destination}
+            coverImage={nearestUpcoming.coverImage}
           />
         </div>
       )}
