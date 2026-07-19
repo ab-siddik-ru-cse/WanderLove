@@ -61,7 +61,7 @@ export function PackingTemplateEditor({ initialTemplates }: PackingTemplateEdito
             <div className="mb-2 flex items-center justify-between">
               <p className="font-medium text-ink">{template.name}</p>
               <button onClick={() => removeTemplate(template.name)} aria-label={`Remove ${template.name}`}>
-                <Trash2 className="h-4 w-4 text-ink/40 hover:text-red-500" />
+                <Trash2 className="h-4 w-4 text-ink/40 hover:text-red-500 dark:hover:text-red-400" />
               </button>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -69,7 +69,7 @@ export function PackingTemplateEditor({ initialTemplates }: PackingTemplateEdito
                 <span key={item} className="flex items-center gap-1 rounded-full bg-blush px-2.5 py-1 text-xs text-primary-dark">
                   {item}
                   <button onClick={() => removeItem(template.name, item)} aria-label={`Remove ${item}`}>
-                    <Trash2 className="h-3 w-3 hover:text-red-500" />
+                    <Trash2 className="h-3 w-3 hover:text-red-500 dark:hover:text-red-400" />
                   </button>
                 </span>
               ))}
@@ -103,7 +103,7 @@ export function PackingTemplateEditor({ initialTemplates }: PackingTemplateEdito
         </Button>
       </div>
 
-      {error && <p className="mt-3 text-sm text-red-500">{error}</p>}
+      {error && <p className="mt-3 text-sm text-red-500 dark:text-red-400">{error}</p>}
       <div className="mt-4 flex items-center gap-3">
         <Button onClick={handleSave} isLoading={isSaving} className="!px-4 !py-2 text-sm">
           Save templates

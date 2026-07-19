@@ -59,7 +59,7 @@ export function ExportPdfButton({ targetId, fileName }: ExportPdfButtonProps) {
     <button
       onClick={() => void handleExport()}
       disabled={isExporting}
-      className="flex items-center gap-2 rounded-xl border-2 border-primary/20 bg-white px-3 py-2 text-sm font-medium text-primary-dark shadow-card hover:border-primary/40 disabled:opacity-60"
+      className="flex items-center gap-2 rounded-xl border-2 border-primary/20 bg-surface px-3 py-2 text-sm font-medium text-primary-dark shadow-card hover:border-primary/40 disabled:opacity-60"
     >
       {isExporting ? <Loader2 className="h-4 w-4 animate-spin" /> : <FileDown className="h-4 w-4" />}
       Export PDF

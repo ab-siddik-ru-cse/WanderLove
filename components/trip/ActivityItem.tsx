@@ -28,7 +28,7 @@ export function ActivityItem({ activity, onClick, isMaskedForViewer }: ActivityI
       ref={setNodeRef}
       style={style}
       className={cn(
-        'group flex cursor-pointer items-start gap-2 rounded-xl border border-ink/5 bg-white p-3 shadow-card transition-shadow hover:shadow-soft',
+        'group flex cursor-pointer items-start gap-2 rounded-xl border border-ink/5 bg-surface p-3 shadow-card transition-shadow hover:shadow-soft',
         isDragging && 'opacity-50'
       )}
       onClick={onClick}

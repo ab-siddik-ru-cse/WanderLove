@@ -56,7 +56,7 @@ export function InstantPlanForm() {
 
       <Input label="Destination" placeholder="e.g. Bali, Cox's Bazar, Bandarban" value={destination} onChange={(e) => setDestination(e.target.value)} />
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <Input label="How many days?" type="number" min={1} max={30} value={days} onChange={(e) => setDays(e.target.value)} />
         <Input
           label="Total budget"
@@ -88,7 +88,7 @@ export function InstantPlanForm() {
         </div>
       </div>
 
-      {(formError || error) && <p className="text-sm text-red-500">{formError ?? error}</p>}
+      {(formError || error) && <p className="text-sm text-red-500 dark:text-red-400">{formError ?? error}</p>}
 
       <Button type="submit" isLoading={isLoading} className="w-full">
         Generate my trip

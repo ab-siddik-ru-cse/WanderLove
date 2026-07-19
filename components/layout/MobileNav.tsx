@@ -33,7 +33,7 @@ export function MobileNav() {
               onClick={() => setIsOpen(false)}
             />
             <motion.div
-              className="fixed inset-y-0 left-0 z-50 flex w-72 flex-col bg-white p-6 shadow-soft"
+              className="fixed inset-y-0 left-0 z-50 flex w-72 flex-col bg-surface p-6 shadow-soft"
               initial={{ x: '-100%' }}
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}

@@ -22,7 +22,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           className={cn('input-field', error && 'ring-2 ring-red-400/60', className)}
           {...props}
         />
-        {error && <span className="text-xs text-red-500">{error}</span>}
+        {error && <span className="text-xs text-red-500 dark:text-red-400">{error}</span>}
       </div>
     );
   }

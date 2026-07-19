@@ -44,7 +44,7 @@ export default function RegisterPage() {
           error={errors.password?.message}
           {...register('password')}
         />
-        {error && <p className="text-sm text-red-500">{error}</p>}
+        {error && <p className="text-sm text-red-500 dark:text-red-400">{error}</p>}
         <Button type="submit" isLoading={isLoading} className="mt-2 w-full">
           Create account
         </Button>

@@ -5,6 +5,9 @@ export interface IUserDocument extends Document {
   name: string;
   email: string;
   password: string;
+  avatar?: string | null;
+  coverImage?: string | null;
+  bio?: string | null;
   partnerId?: mongoose.Types.ObjectId | null;
   partnerLinkCode?: string | null;
   preferences: {
@@ -40,6 +43,9 @@ const UserSchema = new Schema<IUserDocument>(
     name: { type: String, required: true, trim: true },
     email: { type: String, required: true, unique: true, lowercase: true, trim: true },
     password: { type: String, required: true, select: false },
+    avatar: { type: String, default: null },
+    coverImage: { type: String, default: null },
+    bio: { type: String, default: null, maxlength: 280 },
     partnerId: { type: Schema.Types.ObjectId, ref: 'User', default: null },
     partnerLinkCode: { type: String, default: null, index: true },
     preferences: {

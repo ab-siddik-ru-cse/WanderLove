@@ -122,7 +122,7 @@ export function MapView({ points, mapboxToken }: MapViewProps) {
 
   return (
     <div className="overflow-hidden rounded-xl2 shadow-card">
-      {loadError && <p className="bg-red-50 p-3 text-sm text-red-500">{loadError}</p>}
+      {loadError && <p className="bg-red-50 p-3 text-sm text-red-500 dark:bg-red-950/30 dark:text-red-400">{loadError}</p>}
       <div ref={containerRef} className="h-[480px] w-full" />
     </div>
   );

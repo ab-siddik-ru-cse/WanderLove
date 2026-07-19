@@ -51,7 +51,7 @@ export function CustomFieldManager({ initialFields }: CustomFieldManagerProps) {
           <span key={f.fieldName} className="flex items-center gap-1.5 rounded-full bg-blush px-3 py-1.5 text-sm text-primary-dark">
             {f.fieldName} <span className="text-xs opacity-60">({f.fieldType})</span>
             <button onClick={() => removeField(f.fieldName)} aria-label={`Remove ${f.fieldName}`}>
-              <Trash2 className="h-3.5 w-3.5 hover:text-red-500" />
+              <Trash2 className="h-3.5 w-3.5 hover:text-red-500 dark:hover:text-red-400" />
             </button>
           </span>
         ))}
@@ -84,7 +84,7 @@ export function CustomFieldManager({ initialFields }: CustomFieldManagerProps) {
         </Button>
       </div>
 
-      {error && <p className="mt-3 text-sm text-red-500">{error}</p>}
+      {error && <p className="mt-3 text-sm text-red-500 dark:text-red-400">{error}</p>}
       <div className="mt-4 flex items-center gap-3">
         <Button onClick={handleSave} isLoading={isSaving} className="!px-4 !py-2 text-sm">
           Save fields

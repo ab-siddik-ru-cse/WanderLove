@@ -28,7 +28,7 @@ export function DayColumn({ dayId, date, activities, onActivityClick, onAddClick
         </div>
         <button
           onClick={onAddClick}
-          className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-primary shadow-card hover:bg-primary hover:text-white"
+          className="flex h-7 w-7 items-center justify-center rounded-full bg-surface text-primary shadow-card hover:bg-primary hover:text-white"
           aria-label="Add activity"
         >
           <Plus className="h-4 w-4" />

@@ -53,6 +53,9 @@ export interface IUser {
   name: string;
   email: string;
   password: string; // hashed, never sent to client
+  avatar?: string | null;
+  coverImage?: string | null;
+  bio?: string | null;
   partnerId?: string | null;
   partnerLinkCode?: string | null;
   preferences: IUserPreferences;
@@ -65,6 +68,9 @@ export interface IPublicUser {
   _id: string;
   name: string;
   email: string;
+  avatar?: string | null;
+  coverImage?: string | null;
+  bio?: string | null;
   partnerId?: string | null;
   preferences: IUserPreferences;
 }

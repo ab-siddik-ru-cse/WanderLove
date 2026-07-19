@@ -74,7 +74,7 @@ export function JournalBoard({ tripId, initialEntries, currentUserId, authorName
             onChange={(e) => setImage(e.target.value)}
           />
         </div>
-        {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
+        {error && <p className="mt-2 text-sm text-red-500 dark:text-red-400">{error}</p>}
         <div className="mt-3 flex justify-end">
           <Button onClick={() => void handlePost()} isLoading={isSubmitting}>
             <Send className="h-4 w-4" />

@@ -92,9 +92,9 @@ export function TripCreateForm({ packingTemplates }: TripCreateFormProps) {
   return (
     <div className="mx-auto max-w-2xl">
       {/* Step indicator */}
-      <div className="mb-8 flex items-center justify-center gap-4">
+      <div className="mb-8 flex items-center justify-center gap-2 sm:gap-4">
         {STEPS.map(({ id, label, icon: Icon }, idx) => (
-          <div key={id} className="flex items-center gap-4">
+          <div key={id} className="flex items-center gap-2 sm:gap-4">
             <div className="flex flex-col items-center gap-1.5">
               <div
                 className={cn(
@@ -110,12 +110,12 @@ export function TripCreateForm({ packingTemplates }: TripCreateFormProps) {
               </div>
               <span className={cn('text-xs font-medium', step === id ? 'text-ink' : 'text-ink/40')}>{label}</span>
             </div>
-            {idx < STEPS.length - 1 && <div className="h-px w-10 bg-ink/10" />}
+            {idx < STEPS.length - 1 && <div className="h-px w-5 bg-ink/10 sm:w-10" />}
           </div>
         ))}
       </div>
 
-      <div className="card-surface p-8">
+      <div className="card-surface p-5 sm:p-8">
         <AnimatePresence mode="wait">
           {step === 1 && (
             <motion.div
@@ -133,7 +133,7 @@ export function TripCreateForm({ packingTemplates }: TripCreateFormProps) {
                 error={detailErrors.name}
                 onChange={(e) => setDetails({ ...details, name: e.target.value })}
               />
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <Input
                   label="Destination (city)"
                   placeholder="Cox's Bazar"
@@ -149,7 +149,7 @@ export function TripCreateForm({ packingTemplates }: TripCreateFormProps) {
                   onChange={(e) => setDetails({ ...details, country: e.target.value })}
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <Input
                   label="Start date"
                   type="date"
@@ -165,7 +165,7 @@ export function TripCreateForm({ packingTemplates }: TripCreateFormProps) {
                   onChange={(e) => setDetails({ ...details, endDate: e.target.value })}
                 />
               </div>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                 <Input
                   label="Timezone"
                   value={details.timezone}
@@ -268,7 +268,7 @@ export function TripCreateForm({ packingTemplates }: TripCreateFormProps) {
           )}
         </AnimatePresence>
 
-        {error && <p className="mt-4 text-sm text-red-500">{error}</p>}
+        {error && <p className="mt-4 text-sm text-red-500 dark:text-red-400">{error}</p>}
 
         <div className="mt-8 flex items-center justify-between">
           <Button variant="ghost" onClick={goBack} disabled={step === 1}>

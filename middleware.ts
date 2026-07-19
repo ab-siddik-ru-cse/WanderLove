@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 import { verifyTokenEdge } from '@/lib/auth-edge';
 
 const AUTH_COOKIE_NAME = 'wanderlove_token';
-const PROTECTED_PREFIXES = ['/trips', '/instant', '/settings'];
+const PROTECTED_PREFIXES = ['/trips', '/instant', '/settings', '/profile'];
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -27,5 +27,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/', '/trips/:path*', '/instant/:path*', '/settings/:path*']
+  matcher: ['/', '/trips/:path*', '/instant/:path*', '/settings/:path*', '/profile/:path*']
 };

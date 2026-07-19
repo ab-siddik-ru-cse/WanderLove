@@ -16,7 +16,7 @@ export function TripTabs({ tripId }: { tripId: string }) {
   const pathname = usePathname();
 
   return (
-    <div className="flex gap-1 rounded-xl2 bg-white p-1.5 shadow-card">
+    <div className="flex gap-1 overflow-x-auto rounded-xl2 bg-surface p-1.5 shadow-card">
       {TABS.map(({ key, label, icon: Icon }) => {
         const href = `/trips/${tripId}/${key}`;
         const isActive = pathname === href;
@@ -25,12 +25,12 @@ export function TripTabs({ tripId }: { tripId: string }) {
             key={key}
             href={href}
             className={cn(
-              'flex flex-1 items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors',
+              'flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-xl px-2.5 py-2.5 text-sm font-medium transition-colors sm:px-4',
               isActive ? 'bg-love-gradient text-white' : 'text-ink/50 hover:bg-blush hover:text-ink'
             )}
           >
-            <Icon className="h-4 w-4" />
-            {label}
+            <Icon className="h-4 w-4 shrink-0" />
+            <span className="hidden sm:inline">{label}</span>
           </Link>
         );
       })}

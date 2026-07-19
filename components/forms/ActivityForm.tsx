@@ -98,7 +98,7 @@ export function ActivityForm({
     <Modal isOpen={isOpen} onClose={onClose} title={initialActivity ? 'Edit activity' : 'Add activity'}>
       <div className="flex flex-col gap-4">
         <Input label="Title" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Sunset boat ride" />
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <Input label="Location" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Beachfront" />
           <Input label="Time" value={time} onChange={(e) => setTime(e.target.value)} placeholder="6:00 PM" />
         </div>
@@ -136,7 +136,7 @@ export function ActivityForm({
           <summary className="cursor-pointer text-sm font-medium text-ink/60">
             Map coordinates (optional, shows this activity on the Map tab)
           </summary>
-          <div className="mt-3 grid grid-cols-2 gap-3">
+          <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
             <Input label="Latitude" type="number" step="any" value={lat} onChange={(e) => setLat(e.target.value)} placeholder="21.4272" />
             <Input label="Longitude" type="number" step="any" value={lng} onChange={(e) => setLng(e.target.value)} placeholder="92.0058" />
           </div>
@@ -196,14 +196,14 @@ export function ActivityForm({
           Mark as a surprise (title & cost hidden from your partner) 🎁
         </label>
 
-        {error && <p className="text-sm text-red-500">{error}</p>}
+        {error && <p className="text-sm text-red-500 dark:text-red-400">{error}</p>}
 
         <div className="mt-2 flex items-center justify-between gap-3">
           {initialActivity && onDelete ? (
             <button
               type="button"
               onClick={() => void onDelete()}
-              className="flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm text-red-500 hover:bg-red-50"
+              className="flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30"
             >
               <Trash2 className="h-4 w-4" /> Delete
             </button>

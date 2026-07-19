@@ -23,20 +23,20 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
           onClick={onClose}
         >
           <motion.div
-            className="card-surface w-full max-w-md p-6"
+            className="card-surface flex max-h-[85vh] w-full max-w-md flex-col p-5 sm:p-6"
             initial={{ opacity: 0, scale: 0.95, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ type: 'spring', duration: 0.35 }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="mb-4 flex items-center justify-between">
+            <div className="mb-4 flex shrink-0 items-center justify-between">
               {title && <h3 className="text-lg font-semibold text-ink">{title}</h3>}
               <button onClick={onClose} className="ml-auto rounded-full p-1 hover:bg-ink/5" aria-label="Close">
                 <X className="h-5 w-5 text-ink/60" />
               </button>
             </div>
-            {children}
+            <div className="overflow-y-auto">{children}</div>
           </motion.div>
         </motion.div>
       )}

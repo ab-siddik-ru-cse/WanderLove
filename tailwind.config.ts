@@ -20,17 +20,18 @@ const config: Config = {
           light: 'rgb(var(--color-secondary-light-rgb, 162 155 254) / <alpha-value>)',
           dark: 'rgb(var(--color-secondary-dark-rgb, 72 52 212) / <alpha-value>)'
         },
-        blush: '#FFF0F3',
-        parchment: '#FFFCF5',
-        ink: '#2D2A32'
+        blush: 'rgb(var(--color-blush-rgb, 255 240 243) / <alpha-value>)',
+        parchment: 'rgb(var(--color-parchment-rgb, 255 252 245) / <alpha-value>)',
+        ink: 'rgb(var(--color-ink-rgb, 45 42 50) / <alpha-value>)',
+        surface: 'rgb(var(--color-surface-rgb, 255 255 255) / <alpha-value>)'
       },
       fontFamily: {
         heading: ['var(--font-playfair)', 'serif'],
         body: ['var(--font-poppins)', 'sans-serif']
       },
       boxShadow: {
-        soft: '0 8px 30px rgba(232, 93, 117, 0.12)',
-        card: '0 4px 20px rgba(45, 42, 50, 0.08)'
+        soft: '0 8px 30px rgb(var(--color-primary-rgb, 232 93 117) / 0.16)',
+        card: '0 4px 20px rgb(var(--color-ink-rgb, 45 42 50) / 0.08)'
       },
       borderRadius: {
         xl2: '1.25rem'

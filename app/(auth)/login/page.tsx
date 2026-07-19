@@ -36,7 +36,7 @@ export default function LoginPage() {
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
         <Input label="Email" type="email" placeholder="you@example.com" error={errors.email?.message} {...register('email')} />
         <Input label="Password" type="password" placeholder="••••••••" error={errors.password?.message} {...register('password')} />
-        {error && <p className="text-sm text-red-500">{error}</p>}
+        {error && <p className="text-sm text-red-500 dark:text-red-400">{error}</p>}
         <Button type="submit" isLoading={isLoading} className="mt-2 w-full">
           Log in
         </Button>

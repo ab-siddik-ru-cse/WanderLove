@@ -57,7 +57,7 @@ export function CountdownWidget({ targetDate, destination, coverImage }: Countdo
         ].map(({ value, label, isMs }) => (
           <div key={label} className="rounded-xl bg-white/15 py-2 text-center backdrop-blur-sm">
             <div className="tabular-nums text-lg font-bold sm:text-2xl">
-              {isMs ? String(value).padStart(2, '0') : value}
+              {isMs ? String(value).padStart(3, '0') : value}
             </div>
             <div className="text-[10px] uppercase tracking-wide opacity-80 sm:text-xs">{label}</div>
           </div>

@@ -32,7 +32,7 @@ export function BudgetCharts({ currency, totalBudget, categoryTotals, dayTotals,
         </div>
         <div className="card-surface p-5">
           <p className="text-xs uppercase tracking-wide text-ink/40">{remaining >= 0 ? 'Remaining' : 'Over budget'}</p>
-          <p className={`mt-1 font-heading text-xl font-bold ${remaining >= 0 ? 'text-ink' : 'text-red-500'}`}>
+          <p className={`mt-1 font-heading text-xl font-bold ${remaining >= 0 ? 'text-ink' : 'text-red-500 dark:text-red-400'}`}>
             {formatCurrency(Math.abs(remaining), currency)}
           </p>
         </div>

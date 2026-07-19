@@ -9,7 +9,7 @@ Full-stack Next.js 14 (App Router) + TypeScript + MongoDB app for couples to pla
 - MongoDB models (Mongoose, fully typed, no `any` in schemas): `User`, `Trip` (with embedded `days`/`activities`/`sharedJournal`/`packingChecklist`), `Activity`, `Template`, `JournalEntry`
 - Auth: register / login / logout with JWT (httpOnly cookie), bcrypt password hashing
 - Partner Link system: generate a unique `LOVE-XXXX` code, partner accepts it, both users get linked one-to-one
-- Route protection via `middleware.ts` (edge-safe JWT verification with `jose`) for `/dashboard`, `/trips`, `/instant`, `/settings`
+- Route protection via `middleware.ts` (edge-safe JWT verification with `jose`) for `/`, `/trips`, `/instant`, `/settings`, and `/profile`
 - Dashboard shell: Sidebar + Navbar, trip grid with `TripCard`, live countdown widget to the nearest upcoming trip, empty state
 - Reusable UI kit: `Button`, `Input`, `Card`, `Modal` — all theme-aware
 - Placeholder pages for Trip Wizard / Instant Plan / Settings so navigation doesn't 404 before Steps 2 & 3 land
@@ -43,8 +43,21 @@ Full-stack Next.js 14 (App Router) + TypeScript + MongoDB app for couples to pla
 ## 🆕 Post-launch fixes
 
 - **Mobile nav**: the Sidebar was `hidden` below the `md` breakpoint with nothing replacing it — added a hamburger menu (`components/layout/MobileNav.tsx`) in the Navbar that slides in the same "My Trips / Instant Plan / Settings" links on mobile.
-- **Countdown widget**: now ticks every ~47ms and shows Seconds and Milliseconds boxes alongside Days/Hours/Mins (`lib/utils.ts` → `getCountdownParts` extended, `CountdownWidget.tsx` updated).
+- **Countdown widget**: now ticks every ~47ms and shows Seconds and Milliseconds boxes alongside Days/Hours/Mins (`lib/utils.ts` → `getCountdownParts` extended, `CountdownWidget.tsx` updated). It also uses the nearest upcoming trip's cover photo as its background (dark gradient overlay for legibility), matching the `TripHeader` treatment — falls back to the love-gradient if no cover is set.
 - **Trip cover photo**: the trip header (shared across Itinerary/Map/Budget/Journal tabs) is now a `TripHeader` banner that displays `coverImage` behind the title, with a "Change cover" button (paste an image URL) that saves via `PUT /api/trips/[tripId]`.
+
+## 🆕 Round 3 — mobile fixes, dark mode, profile, trip editing
+
+- **Mobile zoom bug (root cause fixed)**: `app/layout.tsx` had no `viewport` meta export at all, which is exactly why every page rendered pinch-zoomed on phones. Added a proper `viewport` export (`width: device-width, initialScale: 1`).
+- **Dark / Light mode**: implemented app-wide, not just a few components.
+  - `ink`, `blush`, `parchment` colors (and a new `surface` token that replaces hardcoded `bg-white` on cards/panels) are now CSS-variable-driven, with `.dark` class overrides in `globals.css`. Because nearly every component already used these semantic classes instead of raw colors, this flips the *entire* app to dark mode without needing `dark:` variants sprinkled everywhere.
+  - `box-shadow` utilities (`shadow-soft`, `shadow-card`) now read from the same CSS variables too, so they adapt to dark mode and to your custom theme color.
+  - A blocking inline script (`ThemeModeScript`, rendered in `<head>`) applies the saved preference *before paint* — no flash of the wrong theme on load.
+  - `useThemeMode` hook + `ThemeModeToggle` (sun/moon button) — in the Navbar, and as a dedicated "Appearance" card on the new Profile page. Preference is saved per-device via `localStorage` (so each partner can pick their own).
+  - Red error/danger text and backgrounds (`text-red-500`, `bg-red-50`) got explicit `dark:` variants so they stay legible on dark backgrounds.
+- **Profile page** (`/profile`, new): cover banner + overlapping avatar (both set via pasted image URL, same UX pattern as trip covers), editable name + bio, password change form, and the Appearance card. Backed by new `User` model fields (`avatar`, `coverImage`, `bio`) and new API routes: `GET/PUT /api/profile`, `PUT /api/profile/password`. Linked from the Navbar (click your avatar/name) and from the mobile menu.
+- **Trip ("tour") editing**: a new "Edit trip" button next to "Change cover" on every trip's header opens `TripEditModal` — edit name, destination, country, dates, timezone, currency, budget, and visibility, saved via the existing `PUT /api/trips/[tripId]`.
+- **Responsive pass**: audited every multi-column grid across the Trip Wizard, Instant Plan form, Activity form, and Theme Customizer — anything that was a fixed 2/3-column grid now stacks to 1 column below the `sm` breakpoint. The trip tabs (Itinerary/Map/Budget/Journal) go icon-only on narrow screens instead of overflowing. The `Modal` component is now scrollable with a `max-h-[85vh]` cap so long forms (Activity form, Trip edit) don't get cut off on short mobile viewports.
 
 ## Setup
 

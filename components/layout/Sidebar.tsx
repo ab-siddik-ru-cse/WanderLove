@@ -10,7 +10,7 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden w-64 shrink-0 flex-col border-r border-ink/5 bg-white/70 p-6 md:flex">
+    <aside className="hidden w-64 shrink-0 flex-col border-r border-ink/5 bg-surface/70 p-6 md:flex">
       <div className="mb-8 flex items-center gap-2">
         <Heart className="h-6 w-6 fill-primary text-primary" />
         <span className="font-heading text-lg font-bold text-ink">WanderLove</span>

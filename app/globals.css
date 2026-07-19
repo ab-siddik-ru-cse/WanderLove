@@ -17,6 +17,21 @@
   --color-secondary-rgb: 108 99 255;
   --color-secondary-light-rgb: 162 155 254;
   --color-secondary-dark-rgb: 72 52 212;
+
+  /* Semantic surface/text tokens — swapping these under .dark is what
+     flips the whole app to dark mode, since every component already uses
+     bg-blush / bg-surface / text-ink / border-ink instead of raw colors. */
+  --color-ink-rgb: 45 42 50; /* body text */
+  --color-blush-rgb: 255 240 243; /* app background */
+  --color-parchment-rgb: 255 252 245; /* alt background */
+  --color-surface-rgb: 255 255 255; /* card/panel background */
+}
+
+.dark {
+  --color-ink-rgb: 237 233 240;
+  --color-blush-rgb: 30 22 28;
+  --color-parchment-rgb: 36 27 33;
+  --color-surface-rgb: 45 35 43;
 }
 
 @layer base {
@@ -36,22 +51,22 @@
 
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 rounded-xl2 border-2 border-primary/20
-      bg-white px-6 py-3 font-medium text-primary-dark shadow-card transition-colors
+      bg-surface px-6 py-3 font-medium text-primary-dark shadow-card transition-colors
       hover:border-primary/40 hover:bg-blush;
   }
 
   .input-field {
-    @apply w-full rounded-xl border border-ink/10 bg-white px-4 py-3 text-ink placeholder:text-ink/40
+    @apply w-full rounded-xl border border-ink/10 bg-surface px-4 py-3 text-ink placeholder:text-ink/40
       outline-none transition-shadow focus:ring-2 focus:ring-primary/40;
   }
 
   .card-surface {
-    @apply rounded-xl2 border border-ink/5 bg-white shadow-card;
+    @apply rounded-xl2 border border-ink/5 bg-surface shadow-card;
   }
 }
 
 /* subtle scrapbook paper texture using layered radial dots */
 .paper-texture {
-  background-image: radial-gradient(rgba(232, 93, 117, 0.06) 1px, transparent 1px);
+  background-image: radial-gradient(rgb(var(--color-primary-rgb) / 0.06) 1px, transparent 1px);
   background-size: 18px 18px;
 }

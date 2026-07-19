@@ -47,6 +47,9 @@ export async function POST(request: Request) {
       _id: user._id.toString(),
       name: user.name,
       email: user.email,
+      avatar: user.avatar ?? null,
+      coverImage: user.coverImage ?? null,
+      bio: user.bio ?? null,
       partnerId: user.partnerId?.toString() ?? null,
       preferences: user.preferences
     };

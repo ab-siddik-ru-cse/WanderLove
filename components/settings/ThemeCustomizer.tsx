@@ -48,7 +48,7 @@ export function ThemeCustomizer({ initialTheme }: ThemeCustomizerProps) {
       </div>
       <p className="mb-4 text-sm text-ink/50">Pick your couple&apos;s colors — changes preview instantly across the whole app.</p>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <label className="flex flex-col gap-2">
           <span className="text-sm font-medium text-ink/70">Primary color</span>
           <div className="flex items-center gap-3">
@@ -77,7 +77,7 @@ export function ThemeCustomizer({ initialTheme }: ThemeCustomizerProps) {
 
       <div className="mt-4 h-12 rounded-xl bg-love-gradient" />
 
-      {error && <p className="mt-3 text-sm text-red-500">{error}</p>}
+      {error && <p className="mt-3 text-sm text-red-500 dark:text-red-400">{error}</p>}
       <div className="mt-4 flex items-center gap-3">
         <Button onClick={handleSave} isLoading={isSaving} className="!px-4 !py-2 text-sm">
           Save theme

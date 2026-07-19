@@ -33,6 +33,10 @@ export default async function TripLayout({ children, params }: TripLayoutProps) 
         startDate={trip.startDate.toISOString()}
         endDate={trip.endDate.toISOString()}
         coverImage={trip.coverImage}
+        timezone={trip.timezone}
+        currency={trip.currency}
+        totalBudget={trip.totalBudget}
+        visibility={trip.visibility}
       />
       <TripTabs tripId={params.tripId} />
       <div className="mt-6">{children}</div>

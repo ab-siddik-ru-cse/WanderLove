@@ -113,7 +113,7 @@ export function CoupleAndSplitSettings({ hasPartner, partnerName, initialSplitRu
               </Button>
             </div>
           </div>
-          {linkError && <p className="text-sm text-red-500">{linkError}</p>}
+          {linkError && <p className="text-sm text-red-500 dark:text-red-400">{linkError}</p>}
         </div>
       )}
 
@@ -133,7 +133,7 @@ export function CoupleAndSplitSettings({ hasPartner, partnerName, initialSplitRu
         ))}
       </div>
 
-      {saveError && <p className="mt-3 text-sm text-red-500">{saveError}</p>}
+      {saveError && <p className="mt-3 text-sm text-red-500 dark:text-red-400">{saveError}</p>}
       <div className="mt-4 flex items-center gap-3">
         <Button onClick={() => void savePreferences({ defaultSplitRule: splitRule })} isLoading={isSaving} className="!px-4 !py-2 text-sm">
           Save split rule

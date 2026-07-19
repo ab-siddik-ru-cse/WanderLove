@@ -23,9 +23,9 @@ export default async function DashboardLayout({ children }: { children: ReactNod
     <div className="paper-texture flex min-h-screen bg-blush">
       <ThemeInjector primary={user.preferences.theme.primary} secondary={user.preferences.theme.secondary} />
       <Sidebar />
-      <div className="flex flex-1 flex-col">
-        <Navbar user={{ name: user.name, email: user.email }} />
-        <main className="flex-1 overflow-y-auto p-6">{children}</main>
+      <div className="flex min-w-0 flex-1 flex-col">
+        <Navbar user={{ name: user.name, email: user.email, avatar: user.avatar }} />
+        <main className="flex-1 overflow-y-auto overflow-x-hidden p-4 sm:p-6">{children}</main>
       </div>
     </div>
   );
